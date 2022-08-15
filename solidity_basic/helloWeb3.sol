@@ -62,4 +62,24 @@ contract HelloWeb3{
          bytes memory data = msg.data;
          return(sender,basefee,data);
     }
+
+    struct Student{
+        uint256 id;
+        uint256 score;
+    }
+
+    Student student;
+
+    function setStudentInfo() external{
+        Student storage _student = student;
+        _student.id=999;
+        _student.score = 888;
+    }
+
+    mapping(uint=>address) public mapAddress;
+
+    function writeMap(uint key,address mapaddress)public{
+        mapAddress[key]=mapaddress;
+    }
+
 }
