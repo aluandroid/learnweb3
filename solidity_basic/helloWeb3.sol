@@ -36,4 +36,30 @@ contract HelloWeb3{
         // minus();    
         balance = address(this).balance;
     }
+
+
+    function returnMultiple() external pure returns(uint256,bool,uint256[3] memory){
+        return (1,false, [uint256(1),2,5]);
+    }
+
+    function returnNamed() external pure  returns(uint256 num,bool bol,uint256[3] memory me){
+        num=2;
+        bol=false;
+        me=[uint256(1),3,5];
+    }
+
+
+    uint[] x =[1,2,3];
+
+    function Fstorage() public{
+        uint[] storage _x = x;
+        _x[0]=256;
+    }
+
+    function gobal()external view returns(address, uint, bytes memory){
+        address sender = msg.sender;
+        uint basefee = block.basefee;
+         bytes memory data = msg.data;
+         return(sender,basefee,data);
+    }
 }
